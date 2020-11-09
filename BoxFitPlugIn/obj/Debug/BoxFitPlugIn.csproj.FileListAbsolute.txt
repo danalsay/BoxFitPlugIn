@@ -1,0 +1,10 @@
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\bin\Debug\BoxFitPlugIn.exe.config
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\bin\Debug\BoxFitPlugIn.exe
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\bin\Debug\BoxFitPlugIn.pdb
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.csprojAssemblyReference.cache
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.Form1.resources
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.Properties.Resources.resources
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.csproj.GenerateResource.cache
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.csproj.CoreCompileInputs.cache
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.exe
+C:\Users\Dan\Source\Repos\BoxFitPlugIn\BoxFitPlugIn\obj\Debug\BoxFitPlugIn.pdb
