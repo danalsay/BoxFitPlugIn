@@ -16,7 +16,46 @@ namespace BoxFitPlugIn
         int pnlWidth = 100;
         int pnlHeight = 600;
         Panel myContainer = new Panel();
-        ProductBox[] Boxes = {
+        Graphics G;
+        ProductBox[] Boxes; 
+        //    = {
+        //    new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,10),new Point(30,10),new Point(30,20),new Point(10,20),new Point(10,30),new Point(0,30), new Point(0,10), new Point(10,10) }),
+        //    new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,20),new Point(30,20),new Point(30,30),new Point(0,30),new Point(0,20), new Point(10,20) }),
+        //    new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20),new Point(10,10),new Point(0,10) }),
+        //    new ProductBox(new Point[] { new Point(0,0), new Point(0,10), new Point(20,10),new Point(20,20),new Point(20,30), new Point(10, 30), new Point(10,40),new Point(0,40), }),
+        //    new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,40),new Point(10,40),new Point(10,10),new Point(0,10) }),
+        //    new ProductBox(new Point[] { new Point(0,0), new Point(30,0), new Point(30,20),new Point(10,20),new Point(10,10),new Point(0,10) }),
+        //    new ProductBox(new Point[] { new Point(20,0), new Point(30,0), new Point(30, 20), new Point(20,20),new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20),new Point(10,10),new Point(20,10) }),
+        //    new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,10),new Point(30,10),new Point(30,20),new Point(20,20),new Point(20,30),new Point(10,30),new Point(10,20),new Point(0,20),new Point(0,10),new Point(10,10) }),
+        //    new ProductBox(new Point[] { new Point(10,0), new Point(30,0), new Point(30,10),new Point(20,10),new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20) }),
+        //    new ProductBox(new Point[] { new Point(20,0), new Point(30,0), new Point(30,30),new Point(0,30),new Point(0,20),new Point(20,20) }),
+        //    new ProductBox(new Point[] { new Point(0,0), new Point(10,0), new Point(10,50),new Point(0,50) }),
+        //    new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,30),new Point(10,30),new Point(10,40),new Point(0,40),new Point(0,20),new Point(10,20) })
+        //};
+
+        public Form1()
+        {
+            InitializeComponent();   
+
+        }
+
+        private void DrawProdBox(ProductBox ProdpBox)
+        {
+
+            Pen penpolygon = new Pen(Color.Black, 1);
+            for (int i = 0; i < ProdpBox.ArrayPoints.Length; i++)
+            {
+                ProdpBox.ArrayPoints[i].X += ProdpBox.BasePoint.X;
+                ProdpBox.ArrayPoints[i].Y += ProdpBox.BasePoint.Y;
+            }
+
+            G.DrawPolygon(penpolygon, ProdpBox.ArrayPoints); 
+
+        }
+
+        private void IntializeBoxes()
+        {
+            Boxes = new ProductBox[] {
             new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,10),new Point(30,10),new Point(30,20),new Point(10,20),new Point(10,30),new Point(0,30), new Point(0,10), new Point(10,10) }),
             new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,20),new Point(30,20),new Point(30,30),new Point(0,30),new Point(0,20), new Point(10,20) }),
             new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20),new Point(10,10),new Point(0,10) }),
@@ -29,30 +68,13 @@ namespace BoxFitPlugIn
             new ProductBox(new Point[] { new Point(20,0), new Point(30,0), new Point(30,30),new Point(0,30),new Point(0,20),new Point(20,20) }),
             new ProductBox(new Point[] { new Point(0,0), new Point(10,0), new Point(10,50),new Point(0,50) }),
             new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,30),new Point(10,30),new Point(10,40),new Point(0,40),new Point(0,20),new Point(10,20) })
-        };
-
-        public Form1()
-        {
-            InitializeComponent();   
-
+            };
         }
 
-        private void DrawProdBox(ProductBox ProdpBox)
-        {
-            Graphics g = myContainer.CreateGraphics();
-            Pen penpolygon = new Pen(Color.Black, 1);
-            for (int i = 0; i < ProdpBox.ArrayPoints.Length; i++)
-            {
-                ProdpBox.ArrayPoints[i].X += ProdpBox.BasePoint.X;
-                ProdpBox.ArrayPoints[i].Y += ProdpBox.BasePoint.Y;
-            }
-
-            g.DrawPolygon(penpolygon, ProdpBox.ArrayPoints); 
-
-        }
 
         private void AddContainer( int width, int height)
         {
+            this.Controls.Remove(myContainer);
             myContainer.Width = width;
             myContainer.Height = height;
             myContainer.BorderStyle = BorderStyle.FixedSingle;
@@ -64,18 +86,19 @@ namespace BoxFitPlugIn
        
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            try
-            { pnlWidth = Convert.ToInt32(txtWidth.Text); }
+            try { pnlWidth = Convert.ToInt32(txtWidth.Text); }
             catch { }
             try { pnlHeight = Convert.ToInt32(txtHeight.Text); }
             catch { }
        
             AddContainer(pnlWidth , pnlHeight);
+            G = myContainer.CreateGraphics();
             StackBoxes();      
         }
 
         private void StackBoxes()
         {
+            IntializeBoxes();
             Algorithm A = new Algorithm(Boxes, 0, 0, pnlWidth, pnlHeight);
             Array.Sort(A.Blocks);
             A.Fit(A.Blocks);
