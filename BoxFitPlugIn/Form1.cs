@@ -15,7 +15,7 @@ namespace BoxFitPlugIn
     {  
         int pnlWidth = 220;
         int pnlHeight = 300;
-        String SortType = "default";
+        String SortType = "none";
         Panel myContainer = new Panel();
         Graphics G;
         ProductBox[] Boxes; 
@@ -23,7 +23,10 @@ namespace BoxFitPlugIn
        
         public Form1()
         {
-
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            //MessageBox.Show(resources.GetString("Description"));
+            //MessageBox.Show()
+            MessageBox.Show(String.Format( resources.GetString("Description"),Environment.NewLine));
             InitializeComponent();
             txtWidth.Text = "220";
             txtHeight.Text = "360";
@@ -45,36 +48,22 @@ namespace BoxFitPlugIn
 
         private void IntializeBoxes()
         {
-            //Boxes = new ProductBox[] {
-            //new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,10),new Point(30,10),new Point(30,20),new Point(10,20),new Point(10,30),new Point(0,30), new Point(0,10), new Point(10,10) }),
-            //new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,20),new Point(30,20),new Point(30,30),new Point(0,30),new Point(0,20), new Point(10,20) }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20),new Point(10,10),new Point(0,10) }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(0,10), new Point(20,10),new Point(20,20),new Point(20,30), new Point(10, 30), new Point(10,40),new Point(0,40), }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,40),new Point(10,40),new Point(10,10),new Point(0,10) }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(30,0), new Point(30,20),new Point(10,20),new Point(10,10),new Point(0,10) }),
-            //new ProductBox(new Point[] { new Point(20,0), new Point(30,0), new Point(30, 20), new Point(20,20),new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20),new Point(10,10),new Point(20,10) }),
-            //new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,10),new Point(30,10),new Point(30,20),new Point(20,20),new Point(20,30),new Point(10,30),new Point(10,20),new Point(0,20),new Point(0,10),new Point(10,10) }),
-            //new ProductBox(new Point[] { new Point(10,0), new Point(30,0), new Point(30,10),new Point(20,10),new Point(20,30),new Point(0,30),new Point(0,20),new Point(10,20) }),
-            //new ProductBox(new Point[] { new Point(20,0), new Point(30,0), new Point(30,30),new Point(0,30),new Point(0,20),new Point(20,20) }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(10,0), new Point(10,50),new Point(0,50) }),
-            //new ProductBox(new Point[] { new Point(10,0), new Point(20,0), new Point(20,30),new Point(10,30),new Point(10,40),new Point(0,40),new Point(0,20),new Point(10,20) })
-            //};
 
-            Boxes = new ProductBox[] {
-            new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,20),new Point(60,20),new Point(60,40),new Point(20,40),new Point(20,60),new Point(0,60), new Point(0,20), new Point(20,20) }),
-            new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,40),new Point(60,40),new Point(60,60),new Point(0,60),new Point(0,40), new Point(20,40) }),
-            new ProductBox(new Point[] { new Point(0,0), new Point(40,0), new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40),new Point(20,20),new Point(0,20) }),
-            //new ProductBox(new Point[] { new Point(0,0), new Point(0,20), new Point(40,20),new Point(40,40),new Point(40,60), new Point(20, 60), new Point(20,80),new Point(0,80), }),
-            new ProductBox(new Point[] { new Point(0,0), new Point(40,0),new Point(40,40), new Point(20, 40), new Point(20,60),new Point(0,60), }),
-            new ProductBox(new Point[] { new Point(0,0), new Point(40,0), new Point(40,80),new Point(20,80),new Point(20,20),new Point(0,20) }),
-            new ProductBox(new Point[] { new Point(0,0), new Point(60,0), new Point(60,40),new Point(20,40),new Point(20,20),new Point(0,20) }),
-            new ProductBox(new Point[] { new Point(40,0), new Point(60,0), new Point(60, 40), new Point(40,40),new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40),new Point(20,20),new Point(40,20) }),
-            new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,20),new Point(60,20),new Point(60,40),new Point(40,40),new Point(40,60),new Point(20,60),new Point(20,40),new Point(0,40),new Point(0,20),new Point(20,20) }),
-            new ProductBox(new Point[] { new Point(20,0), new Point(60,0), new Point(60,20),new Point(40,20),new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40) }),
-            new ProductBox(new Point[] { new Point(40,0), new Point(60,0), new Point(60,60),new Point(0,60),new Point(0,40),new Point(40,40) }),
-            new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,100),new Point(0,100) }),
-            new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,60),new Point(20,60),new Point(20,80),new Point(0,80),new Point(0,40),new Point(20,40) })
-            };
+            //Boxes = new ProductBox[] {
+            //new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,20),new Point(60,20),new Point(60,40),new Point(20,40),new Point(20,60),new Point(0,60), new Point(0,20), new Point(20,20) }),
+            //new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,40),new Point(60,40),new Point(60,60),new Point(0,60),new Point(0,40), new Point(20,40) }),
+            //new ProductBox(new Point[] { new Point(0,0), new Point(40,0), new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40),new Point(20,20),new Point(0,20) }),
+            //new ProductBox(new Point[] { new Point(0,0), new Point(40,0),new Point(40,40), new Point(20, 40), new Point(20,60),new Point(0,60), }),
+            //new ProductBox(new Point[] { new Point(0,0), new Point(40,0), new Point(40,80),new Point(20,80),new Point(20,20),new Point(0,20) }),
+            //new ProductBox(new Point[] { new Point(0,0), new Point(60,0), new Point(60,40),new Point(20,40),new Point(20,20),new Point(0,20) }),
+            //new ProductBox(new Point[] { new Point(40,0), new Point(60,0), new Point(60, 40), new Point(40,40),new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40),new Point(20,20),new Point(40,20) }),
+            //new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,20),new Point(60,20),new Point(60,40),new Point(40,40),new Point(40,60),new Point(20,60),new Point(20,40),new Point(0,40),new Point(0,20),new Point(20,20) }),
+            //new ProductBox(new Point[] { new Point(20,0), new Point(60,0), new Point(60,20),new Point(40,20),new Point(40,60),new Point(0,60),new Point(0,40),new Point(20,40) }),
+            //new ProductBox(new Point[] { new Point(40,0), new Point(60,0), new Point(60,60),new Point(0,60),new Point(0,40),new Point(40,40) }),
+            //new ProductBox(new Point[] { new Point(0,0), new Point(20,0), new Point(20,100),new Point(0,100) }),
+            //new ProductBox(new Point[] { new Point(20,0), new Point(40,0), new Point(40,60),new Point(20,60),new Point(20,80),new Point(0,80),new Point(0,40),new Point(20,40) })
+            //};
+            Boxes = Util.TxtDataReader.LoadCsv("ShapePoints.txt");
         }
 
 
@@ -97,20 +86,20 @@ namespace BoxFitPlugIn
                 SortType = "width";
             else if (FootPrintSort.Checked)
                 SortType = "footprint";
+            else if (none.Checked)
+                SortType = "none";
 
 
             G = myContainer.CreateGraphics();
             try { pnlWidth = Convert.ToInt32(txtWidth.Text); }
             catch
             {
-                this.G.FillRectangle(SystemBrushes.InactiveCaption, 100, 20, 260, 50);
-                this.G.DrawString("Please Enter a integer value for width:", this.Font, SystemBrushes.ActiveCaptionText, 20, 20);
+                MessageBox.Show("Please Enter a integer value for width: (100 - 1000) ");
             }
             try { pnlHeight = Convert.ToInt32(txtHeight.Text); }
             catch
             {
-                this.G.FillRectangle(SystemBrushes.InactiveCaption, 100, 80, 260, 50);
-                this.G.DrawString("Please Enter a integer value for height:", this.Font, SystemBrushes.ActiveCaptionText, 20, 20);
+                MessageBox.Show("Please Enter a integer value for height: (100 - 1000) ");
             }
        
             AddContainer(pnlWidth , pnlHeight);
@@ -132,13 +121,16 @@ namespace BoxFitPlugIn
                     break;
                 case "footprint":
                     Array.Sort(Boxes);
+                    Array.Reverse(Boxes);
+                    break;
+                case "none":
+                    Boxes = Sorting.SortByOriginalOrder(Boxes);
                     break;
                 default:                   
                     break;
             }
 
             Algorithm A = new Algorithm(Boxes, 0, 0, pnlWidth, pnlHeight);
-            //Array.Sort(A.Blocks);
             A.Fit(Boxes);
             for (int i = 0; i < Boxes.Length; i++)
             {
@@ -146,23 +138,7 @@ namespace BoxFitPlugIn
             }
         }
 
-        //private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        //{
 
-        //}
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        //private void LoadBox(int x, int y, System.Drawing.Bitmap bm)
-        //{
-        //    PictureBox pic = new PictureBox();
-        //    pic.Size = new System.Drawing.Size(20, 20);
-        //    pic.Location = new System.Drawing.Point(x, y);
-        //    myContainer.Controls.Add(pic);
-        //}
 
     }
 }

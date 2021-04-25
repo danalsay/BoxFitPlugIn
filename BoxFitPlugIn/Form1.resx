@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Description" xml:space="preserve">
+    <value>This module will attempt to fit the provided collection of 2 dimensional (irregular) shapes (polygons) as defined in the accompanying text file into a rectangular container in the most efficient arrangement to conserve space. {0} You are asked to provide the dimensions of the container onto which the boxes will be packed. The algorithm that is being used is Binary Tree Sort with options for (pre)sorting optimization.</value>
+  </data>
 </root>

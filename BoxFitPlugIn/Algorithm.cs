@@ -32,20 +32,29 @@ namespace BoxFitPlugIn
                
         public void Fit(ProductBox[] Boxes)
         {
-            for (int i = Boxes.Length-1; i >= 0; i--)
+                for (int i = 0 ; i < Boxes.Length; i++)
                 {
-                var node = FindNode(Root, Boxes[i].xUnitWidth, Boxes[i].yUnitHeight);
-                if (node != null)
-                {
-                    var newNode = SplitNode(node, Boxes[i].xUnitWidth, Boxes[i].yUnitHeight);
-                    Boxes[i].BasePoint.X = (int)newNode.x;
-                    Boxes[i].BasePoint.Y = (int)newNode.y;
-                }
+                    var node = FindNode(Root, Boxes[i].xUnitWidth, Boxes[i].yUnitHeight);
+                    if (node != null)
+                    {
+                        var newNode = SplitNode(node, Boxes[i].xUnitWidth, Boxes[i].yUnitHeight);
+                        Boxes[i].BasePoint.X = (int)newNode.x;
+                        Boxes[i].BasePoint.Y = (int)newNode.y;
+                    }
 
-            }
+                }
            
         }
 
+        /// <summary>
+        /// This is the main workhorse logic for the fitting Algorithm. 
+        /// It will attempt to place the box in the next available space in the node and return Next if successful
+        /// otherwise return node so that the fitting method will split the rmaining space into the next sprites. 
+        /// </summary>
+        /// <param name="rootNode"></param>
+        /// <param name="boxWidth"></param>
+        /// <param name="boxLength"></param>
+        /// <returns></returns>
         private Node FindNode(Node rootNode, double boxWidth, double boxLength)
         {
             if (rootNode.used)
