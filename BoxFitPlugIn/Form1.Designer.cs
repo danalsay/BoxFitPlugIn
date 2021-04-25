@@ -37,13 +37,16 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.HightSort = new System.Windows.Forms.RadioButton();
             this.WidthSort = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Instructions = new System.Windows.Forms.Label();
+            this.none = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtHeight
             // 
             this.txtHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHeight.Location = new System.Drawing.Point(179, 34);
+            this.txtHeight.Location = new System.Drawing.Point(179, 124);
             this.txtHeight.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(100, 26);
@@ -52,7 +55,7 @@
             // txtWidth
             // 
             this.txtWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWidth.Location = new System.Drawing.Point(179, 84);
+            this.txtWidth.Location = new System.Drawing.Point(179, 174);
             this.txtWidth.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(100, 26);
@@ -62,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 36);
+            this.label1.Location = new System.Drawing.Point(40, 126);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 20);
@@ -75,7 +78,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(45, 87);
+            this.label2.Location = new System.Drawing.Point(45, 177);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 20);
@@ -85,7 +88,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(167, 319);
+            this.btnSubmit.Location = new System.Drawing.Point(167, 459);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(112, 35);
@@ -108,16 +111,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.none);
             this.groupBox1.Controls.Add(this.HightSort);
             this.groupBox1.Controls.Add(this.WidthSort);
             this.groupBox1.Controls.Add(this.FootPrintSort);
-            this.groupBox1.Location = new System.Drawing.Point(79, 127);
+            this.groupBox1.Location = new System.Drawing.Point(79, 217);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 174);
+            this.groupBox1.Size = new System.Drawing.Size(200, 219);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sort Type";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // HightSort
             // 
@@ -139,11 +142,45 @@
             this.WidthSort.Text = "Width";
             this.WidthSort.UseVisualStyleBackColor = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.30189F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(545, 13);
+            this.label3.MaximumSize = new System.Drawing.Size(300, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(298, 29);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "2D Bin Packing Module";
+            // 
+            // Instructions
+            // 
+            this.Instructions.AutoSize = true;
+            this.Instructions.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.830189F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Instructions.Location = new System.Drawing.Point(40, 33);
+            this.Instructions.MaximumSize = new System.Drawing.Size(400, 0);
+            this.Instructions.Name = "Instructions";
+            this.Instructions.Size = new System.Drawing.Size(0, 17);
+            this.Instructions.TabIndex = 8;
+            // 
+            // none
+            // 
+            this.none.AutoSize = true;
+            this.none.Location = new System.Drawing.Point(57, 165);
+            this.none.Name = "none";
+            this.none.Size = new System.Drawing.Size(65, 24);
+            this.none.TabIndex = 8;
+            this.none.TabStop = true;
+            this.none.Text = "None";
+            this.none.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1176, 1773);
+            this.ClientSize = new System.Drawing.Size(1176, 1059);
+            this.Controls.Add(this.Instructions);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.label2);
@@ -153,7 +190,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.86792F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "scription";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -172,6 +209,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton HightSort;
         private System.Windows.Forms.RadioButton WidthSort;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label Instructions;
+        private System.Windows.Forms.RadioButton none;
     }
 }
 
