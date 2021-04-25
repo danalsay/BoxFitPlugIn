@@ -26,7 +26,10 @@ namespace BoxFitPlugIn
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             //MessageBox.Show(resources.GetString("Description"));
             //MessageBox.Show()
-            MessageBox.Show(String.Format( resources.GetString("Description"),Environment.NewLine));
+            string Message = "This module will attempt to fit the provided collection of 2 dimensional(irregular) shapes(polygons) as defined in the accompanying text file into a rectangular container in the most efficient arrangement to conserve space. {0}";
+            Message += "You are asked to provide the dimensions of the container onto which the boxes will be packed.The algorithm that is being used is Binary Tree Sort with options for (pre) sorting optimization.";
+            MessageBox.Show(String.Format(Message,Environment.NewLine));
+            //MessageBox.Show(Message);
             InitializeComponent();
             txtWidth.Text = "220";
             txtHeight.Text = "360";
